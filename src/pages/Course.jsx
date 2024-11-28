@@ -19,11 +19,13 @@ const Course = () => {
 
   return (
     <>
-      <h1>Course</h1>
+      <h1 className="text-center text-3xl">Course</h1>
       <hr />
+      <div className="grid grid-cols-3 gap-6 p-6 mx-auto drop-shadow-xl">
       {data.map((course) => (
         <CourseCard key={course.id}{...course}/>
       ))}
+      </div>
     </>
   );
 };
@@ -31,13 +33,15 @@ const Course = () => {
 
 const CourseCard = (props) => {
     return (
-      <div style={{ border: "1px solid black", padding: 20, marginBottom: 10 }}>
-        <div>
+      <div className="bg-gray-400 max-w-md p-6">
+        <div className="flex justify-center ">
           <img src={props.picture} alt="" style={{ width: 100 }}/>
         </div>
         <div>{props.title}</div>
         <div>{props.detail}</div>
+        <div className="text-red-700 hover:text-blue-700 border-b-2" >
         <NavLink to={"/course/" + props.id}>เนื้อหาในหลักสูตร</NavLink>
+        </div>
       </div>
     );
   }
